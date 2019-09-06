@@ -1,0 +1,182 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<title>Pact Scan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+    <style>
+        .homepage-banner {
+            background-image: url('./background.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: black;
+            background-position: center;
+            min-height: 512px;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+
+            .homepage-banner p {
+                font-weight: 300;
+                font-style: normal;
+                font-size: 20px;
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+        .pad-top {
+            padding-top: 20px;
+        }
+
+        .pad-bottom {
+            padding-bottom: 20px;
+        }
+
+        .navbar-inverse {
+            background-color: white;
+            border-color: gainsboro;
+        }
+
+        .imgClass {
+            width: 120px;
+            height: 100px;
+        }
+
+        .container {
+            padding: 0px;
+            margin-left: -245px
+        }
+
+        ul {
+            color: black;
+        }
+
+        a {
+            text-decoration: underline;
+        }
+        .selectClass {
+            width: 250px;
+            border-radius: 3px;
+            height: 30px;
+            margin-bottom: 10px;
+            border-color: antiquewhite;
+        }
+    </style>
+</head>
+<body style="height:100%;">
+    <div class="homepage-banner">
+        <div y8 style="padding: 100px;">
+            <h1 class="col-xs-12 pad-top pad-bottom">Visual Intelligence Made Simple</h1>
+            
+        </div>
+    </div>
+
+    <div class="content col-md-12" id="ajax-content" style="width:100%;display:flex;">
+        <div class="col-md-6" style="width:50%;">
+            <div class="centered">
+                <div style="margin:50px;">
+                    <h2>Pact.Vision Service Portfolio Demo</h2><br />
+                                                               <ul style="">
+                                                                   <li>
+                                                                       Upload the files.
+                                                                   </li>
+                                                                   <li>These files/images are scanned using Azure cognitive vision API where text extraction is performed.</li>
+
+                                                                   <li> The extracted text shall be saved in the named CosmosDB.</li>
+
+
+
+                                                                   <li>Text analytics like Topic modelling, Sentiment Analysis....etc are demonstrated.</li>
+
+                                                               </ul>
+                </div>
+            </div>
+          
+        </div>
+
+        <div class="col-md-6" style="width:50%;color:black;">
+            <div style="margin:50px;">
+               
+
+                
+                    
+                        
+						<form action = "/result" method = "POST"  enctype = "multipart/form-data">
+						<div class="col-md-12">
+						 <div class="col-md-6"><p style="display:contents; font-size:bold;">Open Existing Project</p>
+						 <select name="containers" style="margin-left:10px;" >
+								<option value="{{result[0]}}" >Select </option>
+								{% for valu in result[0:]  %}
+								<option value="{{valu}}" >{{valu}}</option>
+								{% endfor %}
+						</select>
+						<br><br></div>
+						 <div class="col-md-6">
+						<input class="form-control" style="width:250px;background-color: #004281;color: white; border-radius: 5px;" type = "submit" id="btn1" value="Apply Scan" / >
+
+						</div>
+                            
+                               
+                                
+								
+								</div>
+							
+							
+                            </form>
+                                            
+             
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sentiment Analysis on Text Data</title>
+   
+  </head>
+  
+  <body>
+  <h2>Please select the container from cosmos db</h2>
+   <div class="ml-container">
+         <form action = "/result" method = "POST"  enctype = "multipart/form-data">
+         <select name="containers" >
+         <option value="{{result[0]}}" >{{result[0]}} </option>
+         {% for valu in result[1:]  %}
+         <option value="{{valu}}" >{{valu}} </option>
+         {% endfor %}
+        <input type = "submit"/ >
+		</form>
+	</div>
+	<br>
+	<br>
+	
+    
+   
+  </body>
+</html>
+
+
+
+
+
+
+
