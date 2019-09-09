@@ -1,13 +1,4 @@
 
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <title>Pact Scan</title>
@@ -16,12 +7,12 @@
 <head>
     <style>
         .homepage-banner {
-            background-image: url('./background.png');
+            background-image: url('static/images/background.png');
             background-repeat: no-repeat;
             background-size: cover;
             background-color: black;
             background-position: center;
-            min-height: 512px;
+            min-height: 495px;
             width: 100%;
             color: white;
             text-align: center;
@@ -86,18 +77,18 @@
         <div class="col-md-6" style="width:50%;">
             <div class="centered">
                 <div style="margin:50px;">
-                    <h2>Pact.Vision Service Portfolio Demo</h2><br />
+                    <h2>Pact.Vision Service Portfolio Demo</h2>
                                                                <ul style="">
                                                                    <li>
                                                                        Upload the files.
                                                                    </li>
-                                                                   <li>These files/images are scanned using Azure cognitive vision API where text extraction is performed.</li>
+                                                                   <li>These files/images are scanned using Amazon Textract API where text extraction is performed.</li>
 
-                                                                   <li> The extracted text shall be saved in the named CosmosDB.</li>
+                                                                   <li> The extracted text shall be saved in the CSV file or SQL DB.</li>
 
 
 
-                                                                   <li>Text analytics like Topic modelling, Sentiment Analysis....etc are demonstrated.</li>
+                                                                  
 
                                                                </ul>
                 </div>
@@ -147,32 +138,6 @@
 
 
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Sentiment Analysis on Text Data</title>
-   
-  </head>
-  
-  <body>
-  <h2>Please select the container from cosmos db</h2>
-   <div class="ml-container">
-         <form action = "/result" method = "POST"  enctype = "multipart/form-data">
-         <select name="containers" >
-         <option value="{{result[0]}}" >{{result[0]}} </option>
-         {% for valu in result[1:]  %}
-         <option value="{{valu}}" >{{valu}} </option>
-         {% endfor %}
-        <input type = "submit"/ >
-		</form>
-	</div>
-	<br>
-	<br>
-	
-    
-   
-  </body>
-</html>
 
 
 
