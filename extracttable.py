@@ -11,26 +11,26 @@ import os
 #from trpp import Document
 
 
-os.environ['AWS_SECRET_ACCESS_KEY']='AKIATXCWEQVAKHIFDH4W'
-os.environ['AWS_ACCESS_KEY_ID']='67k3XjzDFb4ttnAxO3EbE1w/G9w2R6q32qtXAqlt'
-
-documentName = "C:\\Users\\P0142221\\Desktop\\DS\\PactScan\\Reddys_Image\\coa2.png"
-bucketName="textractpython"
-docS3="coa1.PNG"
-with open(documentName, 'rb') as document:
-    imageBytes = bytearray(document.read())
-    
-textract=boto3.client('textract',region_name='us-east-1',aws_access_key_id='AKIATXCWEQVAKHIFDH4W',
-                      aws_secret_access_key='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')
-response = textract.detect_document_text(Document={'Bytes': imageBytes})
-
-response_tables = textract.analyze_document(Document={
-        'S3Object': {
-            'Bucket': bucketName,
-            'Name': docS3
-        }
-    },
-    FeatureTypes=["TABLES"])
+#os.environ['AWS_SECRET_ACCESS_KEY']='AKIATXCWEQVAKHIFDH4W'
+#os.environ['AWS_ACCESS_KEY_ID']='67k3XjzDFb4ttnAxO3EbE1w/G9w2R6q32qtXAqlt'
+#
+#documentName = "C:\\Users\\P0142221\\Desktop\\DS\\PactScan\\Reddys_Image\\coa2.png"
+#bucketName="textractpython"
+#docS3="coa1.PNG"
+#with open(documentName, 'rb') as document:
+#    imageBytes = bytearray(document.read())
+#    
+#textract=boto3.client('textract',region_name='us-east-1',aws_access_key_id='AKIATXCWEQVAKHIFDH4W',
+#                      aws_secret_access_key='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')
+#response = textract.detect_document_text(Document={'Bytes': imageBytes})
+#
+#response_tables = textract.analyze_document(Document={
+#        'S3Object': {
+#            'Bucket': bucketName,
+#            'Name': docS3
+#        }
+#    },
+#    FeatureTypes=["TABLES"])
 
 def connection_tables(bucketName,docS3):
     textract=boto3.client('textract',region_name='us-east-1',aws_access_key_id='AKIATXCWEQVAKHIFDH4W',
