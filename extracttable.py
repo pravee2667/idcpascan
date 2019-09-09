@@ -33,8 +33,8 @@ import boto3
 #    FeatureTypes=["TABLES"])
 
 def connection_tables(bucketName,docS3):
-    textract=boto3.client('textract',region_name='us-east-1',aws_access_key_id='AKIATXCWEQVAKHIFDH4W',
-                      aws_secret_access_key='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')
+    textract=boto3.client('textract',region_name='us-east-1',aws_access_key_id='AKIATXCWEQVALA7AD5QM',
+                      aws_secret_access_key='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')
     response_tables = textract.analyze_document(Document={
         'S3Object': {
             'Bucket': bucketName,
@@ -752,8 +752,8 @@ warning = ""
 import pandas as pd
 
 #w=csv.writer(open("output2.csv","w"))
-#dic={}
-#COL_3,COL_2,COL_1,COL_4=[],[],[],[]
+dic={}
+COL_3,COL_2,COL_1,COL_4=[],[],[],[]
 #
 #doc=Document(response_tables)
 #for page in doc.pages:

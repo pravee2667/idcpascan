@@ -5,8 +5,8 @@ import boto3
 
 s3 = boto3.client(
    's3',
-   aws_access_key_id="AKIATXCWEQVAKHIFDH4W",
-   aws_secret_access_key="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"
+   aws_access_key_id="AKIATXCWEQVALA7AD5QM",
+   aws_secret_access_key="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"
 )
 
 def upload_file_s3(file,bucket_name,acl="public-read"):
