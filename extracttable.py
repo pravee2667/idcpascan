@@ -6,7 +6,7 @@ Created on Wed Aug 28 14:53:34 2019
 """
 
 import boto3
-import os
+
 
 #from trpp import Document
 
@@ -748,30 +748,30 @@ def isFloat(input):
   return True
 warning = ""
 
-import csv
+#import csv
 import pandas as pd
 
-w=csv.writer(open("output2.csv","w"))
-dic={}
-COL_3,COL_2,COL_1,COL_4=[],[],[],[]
-
-doc=Document(response_tables)
-for page in doc.pages:
-    for table in page.tables:
-        for i,row in enumerate(table.rows):
-            for c,cell in enumerate(row.cells):
-                if(c==0):
-                    COL_1.append(cell.text)
-                elif(c==1):
-                    COL_2.append(cell.text)
-                elif(c==2):
-                    COL_3.append(cell.text)
-                elif(c==3):
-                    COL_4.append(cell.text)
-            
-
-dsd=pd.concat([pd.Series(COL_1,name="COLUMN_1"),pd.Series(COL_2,name="COLUMN_2"),pd.Series(COL_3,name="COLUMN_3"),pd.Series(COL_4,name="COLUMN_4")],axis=1)              
-dsd.to_csv("abc.csv")
+#w=csv.writer(open("output2.csv","w"))
+#dic={}
+#COL_3,COL_2,COL_1,COL_4=[],[],[],[]
+#
+#doc=Document(response_tables)
+#for page in doc.pages:
+#    for table in page.tables:
+#        for i,row in enumerate(table.rows):
+#            for c,cell in enumerate(row.cells):
+#                if(c==0):
+#                    COL_1.append(cell.text)
+#                elif(c==1):
+#                    COL_2.append(cell.text)
+#                elif(c==2):
+#                    COL_3.append(cell.text)
+#                elif(c==3):
+#                    COL_4.append(cell.text)
+#            
+#
+#dsd=pd.concat([pd.Series(COL_1,name="COLUMN_1"),pd.Series(COL_2,name="COLUMN_2"),pd.Series(COL_3,name="COLUMN_3"),pd.Series(COL_4,name="COLUMN_4")],axis=1)              
+#dsd.to_csv("abc.csv")
 
 def result_tables(response_tables):
     doc=Document(response_tables)
