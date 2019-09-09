@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask,render_template,request,redirect
+from flask import Flask,render_template,request,redirect,make_response
 
 from werkzeug import secure_filename
 import helpers
@@ -36,7 +36,12 @@ def result_table():
         select_val=request.form['containers']
         response=et.connection_tables("textractpython",select_val)
         result=et.result_tables(response)
-        return render_template("results.html",result=result.head(2).to_html())
+        #return render_template("results.html",result=result.to_html())
+        response=make_response(result.to_csv())
+        response.headers["Content-Disposition"] = "attachment; filename=export.csv"
+        response.headers["Content-Type"] = "text/csv"
+        return response
+        
         
         
     
